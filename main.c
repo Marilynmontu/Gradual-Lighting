@@ -19,33 +19,33 @@
 	
 }
 void converse(char*x)
-			{
-				int k;
-	      char n1[5],n2[5];
-	      int num1,num2;
-				int i,j;
-			for(i=0;x[i]>='0'&&x[i]<='9';i++)
-			{
-        n1[i]=x[i]; 
-			}
-		  j=i;
-			n1[i]='\0';
-			num1=atoi(n1);
-			k=i+1;
-			while(x[k]!='\0')
-			{
-			if(x[k]!=' '){
-			for(i=0;x[k]>='0'&&x[k]<='9';i++,k++)
-			{
-				n2[i]=x[k];
-			}
-			n2[i]='\0';
-			num2=atoi(n2);
-			calculator(j,num1,num2,x);
+{
+	int k;
+	char n1[5],n2[5];
+	int num1,num2;
+	int i,j;
+	for(i=0;x[i]>='0'&&x[i]<='9';i++)
+	{
+            n1[i]=x[i]; 
+	}
+	j=i;
+	n1[i]='\0';
+	num1=atoi(n1);
+	k=i+1;
+	while(x[k]!='\0')
+	{
+	if(x[k]!=' '){
+	for(i=0;x[k]>='0'&&x[k]<='9';i++,k++)
+	{
+	 n2[i]=x[k];
+	}
+	n2[i]='\0';
+	num2=atoi(n2);
+	calculator(j,num1,num2,x);
       }
-			else k++;
-		  }
-		}			
+	else k++;
+}
+}			
  int main(void)
  {		
  	u8 t;
