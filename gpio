@@ -1,0 +1,34 @@
+#include "delay.h"
+#include "key.h"
+#include "sys.h"
+#include "gpio.h"
+int LED_VALUE[]={0x3e,0x3d,0x3b,0x37,0x2f,0x1f};
+int main(void)
+{
+	u8 t=0;
+        int cnt=0;
+        delay_init();
+	KEY_Init();
+	GP_Init();
+	GPIO_Write(GPIOA,LED_VALUE[0]);
+	while(1)
+	{
+		t=KEY_Scan(0);
+		if(t){
+		switch(t){
+		case KEY_LEFT;
+		cnt--;
+		if(cnt<0) cnt=5;
+		GPIO_Write(GPIOA,LED_VALUE[cnt]);
+		break;
+		case KEY_RIGHT;
+		cnt++;
+		cnt=cnt%6;
+		GPIO_Write(GPIOA,LED_VALUE[cnt]);
+		break;
+		default:
+		break;
+			}
+     		}
+       }
+}
